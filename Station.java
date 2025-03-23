@@ -90,7 +90,7 @@ public class Station {
         return tripLengthRec(s,Visited);
     }
 
-   /*helper method to avoid cycles
+   //helper method to avoid cycles
     public int tripLengthRec(Station s, ArrayList<Station> Visited) {
         if(equals(s)) {
            return 0;
@@ -103,5 +103,5 @@ public class Station {
         if(len >= 0)
             return len +1;
         return -1;
-    }*/
+    }
 }
