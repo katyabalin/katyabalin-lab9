@@ -14,7 +14,7 @@ public class EndStation extends Station {
 
     //updates the connections so that both prev and next refer to the same station
     public void makeEnd() {
-        if((next == null) & (prev == null))
+        if((next == null && prev == null))
             return;
         if(next != null)
             prev = next;
