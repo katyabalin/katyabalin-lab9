@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 public class Station {
-   protected String Line;
-    protected String Name;
-    protected Station next;
-    protected Station prev;
-    protected Boolean isOpen;
+   protected String Line; //metro line
+    protected String Name; // name of station
+    protected Station next; // true if station is in service 
+    protected Station prev; // previous station in line
+    protected Boolean isOpen; // next station on line
+   //constructor
     public Station(String line, String name) {
         Line = line;
         Name = name;
@@ -13,16 +14,19 @@ public class Station {
         isOpen =true;
     }
 
+   //connect this station to another as next
     public void addNext(Station Next) {
       next = Next;
         Next.prev = this;
     }
 
+   //connect this station to another as previous
     public void addPrev(Station Prev) {
         prev = Prev;
         Prev.next = this;
     }
 
+   //two-way connect
     public void connect(Station s) {
         if(s.prev == null && next == null) {
             addNext(s);
@@ -33,10 +37,12 @@ public class Station {
         }
  // when Next != null and Prev != null ??????????
     }
+   //check if station is in service 
     public Boolean isAvailable() {
         return isOpen;
     }
 
+   //service availability 
     public void switchAvailable() {
         isOpen = !isOpen;
     }
@@ -66,6 +72,7 @@ public class Station {
 
         return s;
     }
+   //checks equality based on name and line
     public Boolean equals(Station other) {
         if(other == null) return false;
         if(Name.equals(other.Name) & Line.equals(other.Line))
@@ -73,6 +80,7 @@ public class Station {
         else
             return false;
     }
+   //recursive tripLength method 
     public int tripLength(Station s) {
        // if(equals(s)) {
        //     return 0;
@@ -82,6 +90,7 @@ public class Station {
         return tripLengthRec(s,Visited);
     }
 
+   //helper method to avoid cycles
     public int tripLengthRec(Station s, ArrayList<Station> Visited) {
         if(equals(s)) {
            return 0;
