@@ -4,7 +4,7 @@ import java.util.concurrent.Callable;
 //a station that connects multiple metro lines through transfers 
 public class TransferStation extends Station {
     //stores all of the extra transfer connections from this station
-    private ArrayList<Station> otherStations;
+    ArrayList<Station> otherStations;
     //sets up transfer station with its name, line, and transfer list 
     public TransferStation(String line, String name) {
         super(line, name);
